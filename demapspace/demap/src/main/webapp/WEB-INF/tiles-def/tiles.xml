@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+  <definition name="base" template="/WEB-INF/tiles/layout.jsp">
+    <put-attribute name="title" value="DeMap[디:맵]" />
+    <put-attribute name="menu" value="/WEB-INF/tiles/menu.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+  </definition>
+  
+  <definition name="home" extends="base">
+    <put-attribute name="title" value="DeMap[디:맵] HomePage" />
+    <put-attribute name="body" value="/WEB-INF/views/home.jsp" />
+  </definition>
+  
+  <definition name="search-result" extends="base">
+    <put-attribute name="title" value="DeMap[디:맵] SearchPlace" />
+    <put-attribute name="body" value="/WEB-INF/views/search-result.jsp" />
+  </definition>
+  
+  <definition name="detail-place" extends="base">
+    <put-attribute name="title" value="DeMap[디:맵] DetailPlace" />
+    <put-attribute name="body" value="/WEB-INF/views/detail-place.jsp" />
+  </definition>
+</tiles-definitions>
