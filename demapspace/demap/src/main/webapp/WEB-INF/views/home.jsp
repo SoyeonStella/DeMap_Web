@@ -13,9 +13,9 @@
 		} else {
 
 			if (f.select_pf.value == "place") {
-				f.action = '/search/results/places/' + f.keyword.value;
+				f.action = '/api/results/places/' + f.keyword.value;
 			} else if (f.select_pf.value == "folder") {
-				f.action = '/search/results/folders/' + f.keyword.value;
+				f.action = '/api/results/folders/' + f.keyword.value;
 			}
 		}
 

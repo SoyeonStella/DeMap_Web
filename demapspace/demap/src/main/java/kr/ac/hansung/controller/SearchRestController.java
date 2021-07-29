@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/api/results")
 public class SearchRestController {
 	
+	/*
 	@RequestMapping(value="/places/{keyword}", method = RequestMethod.GET)
 	public ResponseEntity<Void> viewSearchPlaceResult(@PathVariable(value = "keyword") String keyword) {
 		
@@ -20,20 +21,23 @@ public class SearchRestController {
 		return new ResponseEntity<Void>(HttpStatus.OK);
 		
 	}
+	*/
 	
-	/*
+
 	@RequestMapping(value="/places/{keyword}", method = RequestMethod.GET)
 	public ModelAndView viewSearchPlaceResult(@PathVariable(value = "keyword") String keyword) {
 		
 		System.out.println(keyword);
+		String selected = "";
 		
 		ModelAndView mav = new ModelAndView();
         mav.setViewName("search-result");
         mav.addObject("keyword", keyword);
+        mav.addObject("selected","place");
+        
         return mav;
 		
 	}
-	*/
 	
 	@RequestMapping(value="/folders/{keyword}", method = RequestMethod.GET)
 	public ModelAndView viewSearchFolderResult(@PathVariable(value = "keyword") String keyword) {
@@ -43,6 +47,8 @@ public class SearchRestController {
 		ModelAndView mav = new ModelAndView();
         mav.setViewName("search-result");
         mav.addObject("keyword", keyword);
+        mav.addObject("selected","folder");
+    
         return mav;
 		
 	}
