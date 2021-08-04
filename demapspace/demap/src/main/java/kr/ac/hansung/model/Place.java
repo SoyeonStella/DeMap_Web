@@ -9,15 +9,15 @@ import lombok.ToString;
 @ToString
 public class Place {
 	
-	int id;
-	String address_name;
-	String category_group_code;
-	String category_group_name;
-	String category_name;
-	String phone;
-	String place_name;
-	String road_address_name;
-	double x;
-	double y;
+	private int id;
+	private String address_name;
+	private String category_group_code;
+	private String category_group_name;
+	private String category_name;
+	private String phone;
+	private String place_name;
+	private String road_address_name;
+	private double x;
+	private double y;
 
 }
