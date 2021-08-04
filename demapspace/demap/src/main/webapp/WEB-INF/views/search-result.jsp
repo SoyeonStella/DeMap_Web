@@ -23,6 +23,11 @@
 		console.log("버튼 작동 : " + p);
 
 	}
+	
+	function detail_place(f) {
+		//console.log("버튼 작동 : " + p);
+		f.action = '/api/results/places/' + f.id.value;
+	}
 </script>
 
 </head>
@@ -413,6 +418,19 @@
 
 				itemStr += '  <span class="tel">' + places.phone + '</span>'
 						+ '</div>';
+				itemStr += '<form method="post" accept-charset="euc-kr">' 
+						+ '<input type="hidden" name="id" id="id" value="' + places.id + '">'
+						+ '<input type="hidden" name="address_name" value="' + places.address_name + '">'
+						+ '<input type="hidden" name="category_group_code" value="' + places.category_group_code + '">'
+						+ '<input type="hidden" name="category_group_name" value="' + places.category_group_name + '">'
+						+ '<input type="hidden" name="category_name" value="' + places.category_name + '">'
+						+ '<input type="hidden" name="phone" value="' + places.phone + '">'
+						+ '<input type="hidden" name="place_name" value="' + places.place_name + '">'
+						+ '<input type="hidden" name="road_address_name" value="' + places.road_address_name + '">'
+						+ '<input type="hidden" name="x" value="' + places.x + '">'
+						+ '<input type="hidden" name="y" value="' + places.y + '">'
+						+ '<input type="submit" value="Detail" onclick="detail_place(this.form)">'
+						+ '</form>';
 
 				el.innerHTML = itemStr;
 				el.className = 'item';
