@@ -1,12 +1,16 @@
 package kr.ac.hansung.controller;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
+import kr.ac.hansung.model.Place;
 
 @RestController // @Controller + @ResponseBody
 @RequestMapping("/api/results")
@@ -28,7 +32,7 @@ public class SearchRestController {
 	public ModelAndView viewSearchPlaceResult(@PathVariable(value = "keyword") String keyword) {
 		
 		System.out.println(keyword);
-		String selected = "";
+		//String selected = "";
 		
 		ModelAndView mav = new ModelAndView();
         mav.setViewName("search-result");
@@ -52,5 +56,19 @@ public class SearchRestController {
         return mav;
 		
 	}
+	
+	@RequestMapping(value="/places/{id}", method = RequestMethod.POST)
+	public ModelAndView viewPlaceDetail(@PathVariable(value = "id") String id, Place place) {
+		
+		System.out.println(id);
+		System.out.println(place.getPlace_name());
+			
+		ModelAndView mav = new ModelAndView();
+        mav.setViewName("detail-place");
+        mav.addObject("place", place);
+        
+        return mav;
+	}
+		
 
 }
