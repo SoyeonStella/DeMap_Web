@@ -26,7 +26,40 @@
 	
 	function detail_place(f) {
 		//console.log("버튼 작동 : " + p);
+		checkForm(f);
 		f.action = '/api/results/places/' + f.id.value;
+	}
+	
+	function checkForm(f) {
+		
+		//+ '<input type="hidden" name="id" id="id" value="' + places.id + '">'
+		//+ '<input type="hidden" name="address_name" value="' + places.address_name + '">'
+		//+ '<input type="hidden" name="category_group_code" value="' + places.category_group_code + '">'
+		//+ '<input type="hidden" name="category_group_name" value="' + places.category_group_name + '">'
+		//+ '<input type="hidden" name="category_name" value="' + places.category_name + '">'
+		//+ '<input type="hidden" name="phone" value="' + places.phone + '">'
+		//+ '<input type="hidden" name="place_name" value="' + places.place_name + '">'
+		//+ '<input type="hidden" name="road_address_name" value="' + places.road_address_name + '">'
+		//+ '<input type="hidden" name="x" value="' + places.x + '">'
+		//+ '<input type="hidden" name="y" value="' + places.y + '">'
+		//+ '<input type="submit" value="Detail" onclick="detail_place(this.form)">'
+		f.address_name.value = encodeURIComponent(f.address_name.value);
+		f.address_name.value = decodeURIComponent(f.address_name.value);
+		
+		f.category_group_code.value = encodeURIComponent(f.category_group_code.value);
+		f.category_group_code.value = decodeURIComponent(f.category_group_code.value);
+		
+		f.category_group_name.value = encodeURIComponent(f.category_group_name.value);
+		f.category_group_name.value = decodeURIComponent(f.category_group_name.value);
+		
+		f.category_name.value = encodeURIComponent(f.category_name.value);
+		f.category_name.value = decodeURIComponent(f.category_name.value);
+		
+		f.place_name.value = encodeURIComponent(f.place_name.value);
+		f.place_name.value = decodeURIComponent(f.place_name.value);
+		
+		f.road_address_name.value = encodeURIComponent(f.road_address_name.value);
+		f.road_address_name.value = decodeURIComponent(f.road_address_name.value);
 	}
 </script>
 
@@ -418,7 +451,7 @@
 
 				itemStr += '  <span class="tel">' + places.phone + '</span>'
 						+ '</div>';
-				itemStr += '<form method="post" accept-charset="euc-kr">' 
+				itemStr += '<form method="post">' 
 						+ '<input type="hidden" name="id" id="id" value="' + places.id + '">'
 						+ '<input type="hidden" name="address_name" value="' + places.address_name + '">'
 						+ '<input type="hidden" name="category_group_code" value="' + places.category_group_code + '">'

@@ -6,20 +6,6 @@
 <head>
 <script type="text/javascript">
 
-function search(f) {
-	if(f.select_pf.value == "place") {
-		searchPlaces(); return false;
-	} else if(f.select_pf.value == "folder") {
-		f.action = '/api/results/folders/' + f.keyword.value; 
-	}
-}
-
-function detail(p) {
-	console.log("버튼 작동 : "+ p.place_name);
-	
-}
-
-
 </script>
 
 </head>
@@ -30,6 +16,7 @@ function detail(p) {
 		
 		<h1>장소 디테일 뷰</h1>
 		<h2>${place.place_name}</h2>
+		<h2>${place.road_address_name}</h2>
 
 
 			<!-- 지도를 표시할 div 입니다 -->

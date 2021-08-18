@@ -1,5 +1,9 @@
 package kr.ac.hansung.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -58,7 +62,7 @@ public class SearchRestController {
 		
 		System.out.println(id);
 		System.out.println(place.getPlace_name());
-		
+			
 		ModelAndView mav = new ModelAndView();
         mav.setViewName("detail-place");
         mav.addObject("place", place);
