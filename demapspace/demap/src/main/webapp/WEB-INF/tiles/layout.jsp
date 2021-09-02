@@ -13,6 +13,7 @@
 <meta name="author"
 	content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
 <meta name="generator" content="Hugo 0.83.1">
+<script src="https://kit.fontawesome.com/56d919975c.js" crossorigin="anonymous"></script>
 <title><tiles:insertAttribute name="title"></tiles:insertAttribute>
 </title>
 
@@ -80,6 +81,27 @@
 	height: 500px;
 	position: relative;
 	overflow: hidden;
+}
+
+#review_wrap {
+	position: relative;
+	width: 100%;
+	height: 600px;
+	padding: 5px;
+	margin-top: 50px;
+	overflow-y: auto;
+	background: rgba(255, 255, 255, 0.7);
+	z-index: 1;
+	font-size: 12px;
+	border-radius: 10px;
+}
+
+#review_wrap hr {
+	display: block;
+	height: 0.7px;
+	border: 0;
+	border-top: 2px solid #5F5F5F;
+	margin: 3px 0;
 }
 
 #menu_wrap {
@@ -276,6 +298,43 @@ select::-ms-expand {
 	border-radius: 5px;
 	border: 1px solid #999;
 }
+
+.blind {
+  position: absolute;
+  overflow: hidden;
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  border: none;
+  clip: rect(0, 0, 0, 0);
+}
+
+#review_f fieldset{
+    display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
+    direction: rtl;
+    border: 0; /* 필드셋 테두리 제거 */
+}
+#review_f input[type=radio]{
+    display: none; /* 라디오박스 감춤 */
+}
+#review_f label{
+    font-size: 3em; /* 이모지 크기 */
+    color: transparent; /* 기존 이모지 컬러 제거 */
+    text-shadow: 0 0 0 #d3d3d3; /* 새 이모지 색상 부여 */
+}
+
+#review_f label:hover{
+    text-shadow: 0 0 0 #006cb7; /* 마우스 호버 */
+}
+#review_f label:hover ~ label{
+    text-shadow: 0 0 0 #006cb7; /* 마우스 호버 뒤에오는 이모지들 */
+}
+
+#review_f input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 #006cb7; /* 마우스 클릭 체크 */
+}
+
 </style>
 
 <!-- AngularJS -->
