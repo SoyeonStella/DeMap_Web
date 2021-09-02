@@ -58,7 +58,7 @@ public class SearchRestController {
 	}
 	
 	@RequestMapping(value="/places/{id}", method = RequestMethod.POST)
-	public ModelAndView viewPlaceDetail(@PathVariable(value = "id") String id, Place place) {
+	public ModelAndView viewPlaceDetail(@PathVariable(value = "id") String id, Place place, String selected, String keyword) {
 		
 		System.out.println(id);
 		System.out.println(place.getPlace_name());
@@ -66,6 +66,8 @@ public class SearchRestController {
 		ModelAndView mav = new ModelAndView();
         mav.setViewName("detail-place");
         mav.addObject("place", place);
+        mav.addObject("keyword", keyword);
+        mav.addObject("selected",selected);
         
         return mav;
 	}
