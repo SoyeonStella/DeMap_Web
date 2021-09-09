@@ -22,6 +22,10 @@ public class ReviewService {
 	public Review getReviewById(int id) {
 		return reviewDao.getReviewById(id);
 	}
+	
+	public List<Review> getReviewsByPlace(String placeId) {
+		return reviewDao.getReviewsByPlace(placeId);
+	}
 
 	public void addReview(Review review) {
 

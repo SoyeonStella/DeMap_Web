@@ -67,22 +67,44 @@
 			<p>별점평점</p>
 			<hr>
 			리뷰 리스트
+			<div>
+				<table>
+					<c:forEach items="${reviewList}" var="review">
+						<tr>
+							<td>${review.userId}</td>
+							<td>
+								<c:forEach begin="1" end="${review.star}">
+									<label><i class="fas fa-star"></i></label>
+								</c:forEach>
+							</td>
+						</tr>
+						<tr>
+							<td>${review.rvText}</td>
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
 			<hr>
 			<h5>리뷰 작성</h5>
 			<form name="review_f" id="review_f" method="post" action="">
-					<fieldset>
-						<input type="radio" name="rating" value="5" id="rate1"><label for="rate1"><i class="fas fa-star"></i></label>
-						<input type="radio" name="rating" value="4" id="rate2"><label for="rate2"><i class="fas fa-star"></i></label> 
-						<input type="radio" name="rating" value="3" id="rate3"><label for="rate3"><i class="fas fa-star"></i></label> 
-						<input type="radio" name="rating" value="2" id="rate4"><label for="rate4"><i class="fas fa-star"></i></label> 
-						<input type="radio" name="rating" value="1" id="rate5"><label for="rate5"><i class="fas fa-star"></i></label>
-					</fieldset>
-					<br><br>
-					<textarea name="review" id="review" placeholder="내용을 입력해주세요" style="width: 90%;" rows=10></textarea>
-					<br><br>
-					<input type="file" name="review_img" multiple/>
-					<br><br><br>
-					<input id="btn_submit" class="round_rect" type="submit" value="Upload" onclick="" />
+				<fieldset>
+					<input type="radio" name="rating" value="5" id="rate1"> <label
+						for="rate1"><i class="fas fa-star"></i></label> <input
+						type="radio" name="rating" value="4" id="rate2"><label
+						for="rate2"><i class="fas fa-star"></i></label> <input
+						type="radio" name="rating" value="3" id="rate3"><label
+						for="rate3"><i class="fas fa-star"></i></label> <input
+						type="radio" name="rating" value="2" id="rate4"><label
+						for="rate4"><i class="fas fa-star"></i></label> <input
+						type="radio" name="rating" value="1" id="rate5"><label
+						for="rate5"><i class="fas fa-star"></i></label>
+				</fieldset>
+				<br> <br>
+				<textarea name="review" id="review" placeholder="내용을 입력해주세요"
+					style="width: 90%;" rows=10></textarea>
+				<br> <br> <input type="file" name="review_img" multiple />
+				<br> <br> <br> <input id="btn_submit"
+					class="round_rect" type="submit" value="Upload" onclick="" />
 			</form>
 		</div>
 
