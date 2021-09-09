@@ -1,8 +1,6 @@
 package kr.ac.hansung.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,10 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.validation.constraints.Min;
-
-import org.springframework.web.multipart.MultipartFile;
+import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -35,6 +31,9 @@ public class Review implements Serializable{
 	//@JsonIgnore
 	//private User user;
 	private String userId;
+	
+	@NotNull
+	private String placeId;
 	
 	@Min(value=1, message="The review score must no be less than one")
 	private int star;
