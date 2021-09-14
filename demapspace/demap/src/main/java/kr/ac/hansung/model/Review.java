@@ -33,10 +33,10 @@ public class Review implements Serializable{
 	private String userId;
 	
 	@NotNull
-	private String placeId;
+	private int placeId;
 	
 	@Min(value=1, message="The review score must no be less than one")
-	private int star;
+	private int rating;
 	
 	private String rvText;
 	
