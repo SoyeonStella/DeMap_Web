@@ -2,6 +2,7 @@ package kr.ac.hansung.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class ReviewRestController {
 	private ReviewService reviewService;
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public ModelAndView createReview(@Valid Review review, BindingResult result ){
+	public ModelAndView createReview(@Valid Review review, BindingResult result, HttpServletRequest request ){
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -40,7 +41,14 @@ public class ReviewRestController {
 		
 		reviewService.addReview(review);
 		
-		mav.setViewName("redirect:/api/results/places/" + review.getPlaceId() + "/details");
+		
+		
+		if (request.getHeader("Referer") != null) {
+		    mav.setViewName("redirect:" + request.getHeader("Referer"));
+		} else {
+			mav.setViewName("redirect:/api/results/places/" + review.getPlaceId() + "/details");
+		}
+
 		return mav;
 	}
 	
