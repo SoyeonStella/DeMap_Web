@@ -14,8 +14,10 @@
 			//searchPlaces();
 			//return false;
 			f.action = '/api/results/places/' + f.keyword.value;
+			
 		} else if (f.select_pf.value == "folder") {
 			f.action = '/api/results/folders/' + f.keyword.value;
+			
 		}
 	}
 
@@ -27,7 +29,7 @@
 	function detail_place(f) {
 		//console.log("버튼 작동 : " + p);
 		checkForm(f);
-		f.action = '/api/results/places/' + f.id.value;
+		f.action = '/api/results/places/' + f.id.value + '/details';
 	}
 
 	function checkForm(f) {
@@ -448,7 +450,7 @@
 
 				itemStr += '  <span class="tel">' + places.phone + '</span>'
 						+ '</div>';
-				itemStr += '<form method="post">'
+				itemStr += '<form method="get">'
 						+ '<input type="hidden" name="selected" id="selected" value="' + selected + '">'
 						+ '<input type="hidden" name="keyword" id="keyword" value="' + keyword + '">'
 						+ '<input type="hidden" name="id" id="id" value="' + places.id + '">'

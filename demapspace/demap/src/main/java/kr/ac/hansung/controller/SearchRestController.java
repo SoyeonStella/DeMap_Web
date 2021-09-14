@@ -66,8 +66,8 @@ public class SearchRestController {
 
 	}
 
-	@RequestMapping(value = "/places/{id}", method = RequestMethod.POST)
-	public ModelAndView viewPlaceDetail(@PathVariable(value = "id") String id, Place place, String selected,
+	@RequestMapping(value = "/places/{id}/details", method = RequestMethod.GET)
+	public ModelAndView viewPlaceDetail(@PathVariable(value = "id") int id, Place place, String selected,
 			String keyword) {
 
 		System.out.println(id);
