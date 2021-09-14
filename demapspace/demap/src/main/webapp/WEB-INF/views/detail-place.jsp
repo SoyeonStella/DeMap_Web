@@ -10,8 +10,10 @@
 			//searchPlaces();
 			//return false;
 			f.action = '/api/results/places/' + f.keyword.value;
+			
 		} else if (f.select_pf.value == "folder") {
 			f.action = '/api/results/folders/' + f.keyword.value;
+		
 		}
 	}
 </script>
@@ -73,7 +75,7 @@
 						<tr>
 							<td>${review.userId}</td>
 							<td>
-								<c:forEach begin="1" end="${review.star}">
+								<c:forEach begin="1" end="${review.rating}">
 									<label><i class="fas fa-star"></i></label>
 								</c:forEach>
 							</td>
@@ -86,7 +88,7 @@
 			</div>
 			<hr>
 			<h5>리뷰 작성</h5>
-			<form name="review_f" id="review_f" method="post" action="">
+			<form name="review_f" id="review_f" method="post" action="/api/reviews">
 				<fieldset>
 					<input type="radio" name="rating" value="5" id="rate1"> <label
 						for="rate1"><i class="fas fa-star"></i></label> <input
@@ -100,11 +102,14 @@
 						for="rate5"><i class="fas fa-star"></i></label>
 				</fieldset>
 				<br> <br>
-				<textarea name="review" id="review" placeholder="내용을 입력해주세요"
+				<textarea name="rvText" id="rvText" placeholder="내용을 입력해주세요"
 					style="width: 90%;" rows=10></textarea>
 				<br> <br> <input type="file" name="review_img" multiple />
-				<br> <br> <br> <input id="btn_submit"
-					class="round_rect" type="submit" value="Upload" onclick="" />
+				<br> <br> <br> 
+				<input type="hidden" name="placeId" id="placeId" value="${place.id}"/>
+				<input type="hidden" name="userId" id="userId" value="또얀"/>
+				<input id="btn_submit"
+					class="round_rect" type="submit" value="Upload"/>
 			</form>
 		</div>
 
