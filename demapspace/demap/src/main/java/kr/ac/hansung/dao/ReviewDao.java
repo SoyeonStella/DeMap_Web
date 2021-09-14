@@ -47,7 +47,7 @@ public class ReviewDao {
 	}
 
 	// DB에서 특정 장소에 해당하는 리뷰를 가져다주는 메서드
-	public List<Review> getReviewsByPlace(String placeId) {
+	public List<Review> getReviewsByPlace(int placeId) {
 		// SessionFactory 객체를 받아옴
 		//Session session = sessionFactory.getCurrentSession();
 		
@@ -71,9 +71,16 @@ public class ReviewDao {
 
 	// DB에 리뷰를 추가해주는 메서드
 	public void addReview(Review review) {
-		Session session = sessionFactory.getCurrentSession();
+		Session session;
+
+		try {
+		    session = sessionFactory.getCurrentSession();
+		} catch (HibernateException e) {
+		    session = sessionFactory.openSession();
+		}
+		
 		session.saveOrUpdate(review);
-		session.flush();
+		//session.flush();
 
 	}
 
