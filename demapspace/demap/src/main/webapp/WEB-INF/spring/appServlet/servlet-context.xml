@@ -39,7 +39,7 @@
 		name="suffix" value=".jsp" /> </beans:bean> -->
 
 	<!--파일업로드 설정(multiparts) -->
-	<beans:bean id="filterMultipartResolver"
+	<beans:bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<beans:property name="defaultEncoding" value="utf-8" />
 		<!-- 파일업로드 크기 20MB로 설정 -->
