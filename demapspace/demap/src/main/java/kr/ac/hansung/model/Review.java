@@ -1,6 +1,8 @@
 package kr.ac.hansung.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,8 +10,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -40,8 +45,8 @@ public class Review implements Serializable{
 	
 	private String rvText;
 	
-	//@Transient
-	//private List<MultipartFile> reviewImgList = new ArrayList<MultipartFile>();
+	@Transient
+	private List<MultipartFile> rvImgList = new ArrayList<MultipartFile>();
 	
 	
 	//private List<String> imgFilenameList = new ArrayList<String>();

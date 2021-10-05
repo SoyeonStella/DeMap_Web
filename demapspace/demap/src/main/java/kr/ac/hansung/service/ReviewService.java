@@ -27,9 +27,9 @@ public class ReviewService {
 		return reviewDao.getReviewsByPlace(placeId);
 	}
 
-	public void addReview(Review review) {
-
-		reviewDao.addReview(review);
+	public int addReview(Review review) {
+		
+		return reviewDao.addReview(review);
 	}
 
 	public void deleteReview(Review review) {

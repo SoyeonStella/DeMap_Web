@@ -88,7 +88,7 @@
 			</div>
 			<hr>
 			<h5>리뷰 작성</h5>
-			<form name="review_f" id="review_f" method="post" action="/api/reviews">
+			<form name="review_f" id="review_f" method="post" action="/api/reviews" enctype="multipart/form-data">
 				<fieldset>
 					<input type="radio" name="rating" value="5" id="rate1"> <label
 						for="rate1"><i class="fas fa-star"></i></label> <input

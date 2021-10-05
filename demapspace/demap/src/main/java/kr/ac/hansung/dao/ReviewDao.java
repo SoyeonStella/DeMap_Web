@@ -24,7 +24,13 @@ public class ReviewDao {
 	// DB에서 리뷰 리스트를 가져와주는 메서드
 	public List<Review> getReviews() {
 
-		Session session = sessionFactory.getCurrentSession();
+		Session session;
+
+		try {
+		    session = sessionFactory.getCurrentSession();
+		} catch (HibernateException e) {
+		    session = sessionFactory.openSession();
+		}
 		// session이 가지고 있는 메서드들로 가져올 수 없어서 hql 쿼리문을 만들어 가져온다
 		String hql = "from Review";
 
@@ -38,7 +44,13 @@ public class ReviewDao {
 	// DB에서 특정 id에 해당하는 리뷰를 가져다주는 메서드
 	public Review getReviewById(int id) {
 		// SessionFactory 객체를 받아옴
-		Session session = sessionFactory.getCurrentSession();
+		Session session;
+
+		try {
+		    session = sessionFactory.getCurrentSession();
+		} catch (HibernateException e) {
+		    session = sessionFactory.openSession();
+		}
 		// 인자로 받아온 id 값을 바탕으로 해서 Review.class와 매핑되는 테이블에서 id에 해당하는 레코드를 가져옴
 		Review review = (Review) session.get(Review.class, id);
 
@@ -70,7 +82,7 @@ public class ReviewDao {
 	}
 
 	// DB에 리뷰를 추가해주는 메서드
-	public void addReview(Review review) {
+	public int addReview(Review review) {
 		Session session;
 
 		try {
@@ -79,7 +91,8 @@ public class ReviewDao {
 		    session = sessionFactory.openSession();
 		}
 		
-		session.saveOrUpdate(review);
+
+		return (Integer)session.save(review);
 		//session.flush();
 
 	}
