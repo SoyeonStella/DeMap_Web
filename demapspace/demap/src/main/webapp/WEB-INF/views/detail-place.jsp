@@ -104,7 +104,7 @@
 				<br> <br>
 				<textarea name="rvText" id="rvText" placeholder="내용을 입력해주세요"
 					style="width: 90%;" rows=10></textarea>
-				<br> <br> <input type="file" name="review_img" multiple />
+				<br> <br> <input type="file" name="review_img" multiple="multiple" />
 				<br> <br> <br> 
 				<input type="hidden" name="placeId" id="placeId" value="${place.id}"/>
 				<input type="hidden" name="userId" id="userId" value="또얀"/>

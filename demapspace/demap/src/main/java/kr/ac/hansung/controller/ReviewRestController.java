@@ -10,6 +10,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -50,6 +51,7 @@ public class ReviewRestController {
 		ImageFile file = new ImageFile();
 		file.setReview(tmpRv);
 		System.out.println("52줄이다 : "+file);
+		//List<MultipartFile> fileList = mRequest.getFiles("review_img");
 		
 		fileService.multipleFileUpload(mRequest, file);
 		
